@@ -1,7 +1,10 @@
 <?php
 include ("./conexion.php");
 
-$especialidades = $con->query("SELECT * FROM especialidad");
+$query = "SELECT * FROM especialidades";
+$stmt = $con->prepare($query);
+$stmt-> execute();
+$especialidades = $stmt->get_result();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +19,7 @@ $especialidades = $con->query("SELECT * FROM especialidad");
     </header>
     <section>
         <h1>Agregue el turno</h1>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="agregarTurnoMedico.php" method="POST">
             <label>Especialidad:</label>
             <select name="especialidad" required>
                 <?php
