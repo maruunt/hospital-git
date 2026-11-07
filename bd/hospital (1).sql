@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2026 a las 06:10:35
+-- Tiempo de generación: 07-11-2026 a las 01:14:49
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -40,6 +40,18 @@ CREATE TABLE `administrador` (
 
 INSERT INTO `administrador` (`id`, `mail`, `contrasena`, `id_tipo_usuario`) VALUES
 (4, 'pepe@gmail.com', '$2y$10$zNFDkSXcxK.AxrpXCaND5e0/xHknmHIh9jERGF.2sq2Uta7mx/h4.', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `agenda`
+--
+
+CREATE TABLE `agenda` (
+  `id` int(11) NOT NULL,
+  `dia` int(11) NOT NULL,
+  `id_medico` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -120,6 +132,13 @@ CREATE TABLE `medico_especialidad` (
   `id_medico` int(11) NOT NULL,
   `id_especialidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
+
+--
+-- Volcado de datos para la tabla `medico_especialidad`
+--
+
+INSERT INTO `medico_especialidad` (`id_medico`, `id_especialidad`) VALUES
+(1, 4);
 
 -- --------------------------------------------------------
 
@@ -217,14 +236,24 @@ INSERT INTO `tipo_usuario` (`id`, `tipo`) VALUES
 
 CREATE TABLE `turno` (
   `id` int(11) NOT NULL,
-  `fecha_hora` date NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` time NOT NULL,
   `id_paciente` int(11) NOT NULL,
   `id_medico` int(11) NOT NULL,
   `id_especialidad` int(11) NOT NULL,
-  `id_secretario_asignado` int(11) NOT NULL,
+  `id_secretario_asignado` int(11) DEFAULT NULL,
   `estado` int(11) NOT NULL,
-  `observaciones` varchar(200) NOT NULL
+  `observaciones` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `turno`
+--
+
+INSERT INTO `turno` (`id`, `fecha`, `hora`, `id_paciente`, `id_medico`, `id_especialidad`, `id_secretario_asignado`, `estado`, `observaciones`) VALUES
+(2, '2026-11-07', '08:30:17', 3, 1, 4, NULL, 1, NULL),
+(7, '2026-11-08', '01:09:00', 3, 1, 4, NULL, 1, NULL),
+(8, '2026-11-13', '15:13:00', 3, 1, 4, 1, 1, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -235,7 +264,15 @@ CREATE TABLE `turno` (
 --
 ALTER TABLE `administrador`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `mail` (`mail`),
   ADD KEY `id_tipo_usuario` (`id_tipo_usuario`);
+
+--
+-- Indices de la tabla `agenda`
+--
+ALTER TABLE `agenda`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_medico` (`id_medico`);
 
 --
 -- Indices de la tabla `especialidad`
@@ -255,6 +292,7 @@ ALTER TABLE `estado`
 ALTER TABLE `medico`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `especialidad` (`especialidad`),
+  ADD UNIQUE KEY `mail` (`mail`),
   ADD KEY `id_tipo_usuario` (`id_tipo_usuario`);
 
 --
@@ -275,6 +313,7 @@ ALTER TABLE `obra_social`
 --
 ALTER TABLE `paciente`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `mail` (`mail`),
   ADD KEY `id_tipo_usuario` (`id_tipo_usuario`,`id_obra_social`),
   ADD KEY `id_obra_social` (`id_obra_social`);
 
@@ -283,6 +322,7 @@ ALTER TABLE `paciente`
 --
 ALTER TABLE `secretario`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `mail` (`mail`),
   ADD KEY `id_tipo_usuario` (`id_tipo_usuario`);
 
 --
@@ -296,11 +336,11 @@ ALTER TABLE `tipo_usuario`
 --
 ALTER TABLE `turno`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_paciente` (`id_paciente`,`id_medico`,`id_especialidad`,`estado`),
   ADD KEY `estado` (`estado`),
   ADD KEY `id_especialidad` (`id_especialidad`),
   ADD KEY `id_medico` (`id_medico`),
-  ADD KEY `id_secretario_asignado` (`id_secretario_asignado`);
+  ADD KEY `id_secretario_asignado` (`id_secretario_asignado`),
+  ADD KEY `id_paciente` (`id_paciente`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -311,6 +351,12 @@ ALTER TABLE `turno`
 --
 ALTER TABLE `administrador`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `agenda`
+--
+ALTER TABLE `agenda`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `especialidad`
@@ -358,7 +404,7 @@ ALTER TABLE `tipo_usuario`
 -- AUTO_INCREMENT de la tabla `turno`
 --
 ALTER TABLE `turno`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
@@ -369,6 +415,12 @@ ALTER TABLE `turno`
 --
 ALTER TABLE `administrador`
   ADD CONSTRAINT `administrador_ibfk_1` FOREIGN KEY (`id_tipo_usuario`) REFERENCES `tipo_usuario` (`id`);
+
+--
+-- Filtros para la tabla `agenda`
+--
+ALTER TABLE `agenda`
+  ADD CONSTRAINT `agenda_ibfk_1` FOREIGN KEY (`id_medico`) REFERENCES `medico` (`id`);
 
 --
 -- Filtros para la tabla `medico`

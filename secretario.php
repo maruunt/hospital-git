@@ -14,7 +14,7 @@
         <a href="./php/crearPaciente.php">Crear Paciente</a>
 
         <h1>Turnos</h1>
-        <a href="">Agrendar un turno</a>
+        <a href="./php/agregarTurnoEspecialidad.php">Agrendar un turno</a>
         <a href="">Ver turnos</a>
     </section>
 </body>

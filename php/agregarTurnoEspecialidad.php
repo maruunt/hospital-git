@@ -1,10 +1,17 @@
 <?php
-include ("./conexion.php");
-
-$query = "SELECT * FROM especialidades";
-$stmt = $con->prepare($query);
-$stmt-> execute();
-$especialidades = $stmt->get_result();
+if (!empty ($_POST['id_paciente'])) { 
+    $idPaciente = $_POST['id_paciente'];
+    include ("./conexion.php");
+    
+    $query = "SELECT * FROM especialidad";
+    $stmt = $con->prepare($query);
+    $stmt-> execute();
+    $especialidades = $stmt->get_result();
+    $stmt->close();
+    } else {
+        header('Location: agregarTurnoPaciente.php');
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +28,7 @@ $especialidades = $stmt->get_result();
         <h1>Agregue el turno</h1>
         <form action="agregarTurnoMedico.php" method="POST">
             <label>Especialidad:</label>
-            <select name="especialidad" required>
+            <select name="id_especialidad" required>
                 <?php
                 while($e = $especialidades->fetch_assoc()){
                 ?>
@@ -34,6 +41,9 @@ $especialidades = $stmt->get_result();
                 }
                 ?>
             </select> <br> <br>
+
+            <input type="hidden" name="id_paciente" value="<?php echo $idPaciente ?>">
+            
             <input type="submit" value="Enviar">
 
         </form>
