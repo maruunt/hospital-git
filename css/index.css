@@ -1,0 +1,156 @@
+
+/* PALETA DE COLORES */
+
+:root {
+    --azul-oscuro: #164E63;
+    --azul: #2563EB;
+    --celeste: #DBEAFE;
+    --fondo: #F4F8FC;
+    --blanco: #FFFFFF;
+    --texto: #334155;
+}
+
+/* CONFIGURACION GENERAL */
+
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* BARRA DE NAVEGACION */
+
+.navbar-hospital {
+    background-color: var(--azul-oscuro);
+    padding: 15px 0;
+}
+
+.navbar-hospital .navbar-brand {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-hospital {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.boton-login {
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 10px 20px;
+}
+
+/* PORTADA */
+
+.portada {
+    background-color: white;
+    border-radius: 22px;
+    padding: 45px;
+    box-shadow: 0 5px 20px rgba(22, 78, 99, 0.08);
+}
+
+.etiqueta-portada {
+    background-color: var(--celeste);
+    color: var(--azul-oscuro);
+    padding: 9px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.titulo-portada {
+    color: var(--azul-oscuro);
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 750;
+}
+
+.texto-portada {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #64748B;
+}
+
+/* BOTONES */
+
+.btn-hospital {
+    background-color: var(--azul);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    font-weight: 600;
+}
+
+.btn-hospital:hover {
+    background-color: var(--azul-oscuro);
+    color: white;
+}
+
+/* IMAGEN PRINCIPAL */
+
+.imagen-portada {
+    width: 100%;
+    max-width: 500px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+/* PIE DE PAGINA */
+
+.footer-hospital {
+    background-color: var(--azul-oscuro);
+    color: white;
+    padding: 40px 0 20px;
+    margin-top: 40px;
+}
+
+.footer-hospital h5 {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-hospital p {
+    color: #DBEAFE;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.footer-hospital hr {
+    border-color: #DBEAFE;
+    opacity: 0.4;
+}
+
+.footer-hospital .copyright {
+    text-align: center;
+    font-size: 13px;
+}
+
+
+/* ADAPTACION A CELULARES */
+
+@media (max-width: 768px) {
+
+    .portada {
+        padding: 25px;
+        text-align: center;
+    }
+
+    .imagen-portada {
+        height: 250px;
+        margin-top: 20px;
+    }
+
+    .titulo-portada {
+        font-size: 34px;
+    }
+
+}

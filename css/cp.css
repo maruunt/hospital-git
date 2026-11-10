@@ -1,0 +1,55 @@
+
+.pagina-formulario {
+    background-color: var(--fondo);
+    min-height: 100vh;
+}
+
+.formulario-paciente {
+    background-color: var(--blanco);
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(22, 78, 99, 0.08);
+}
+
+.titulo-formulario {
+    color: var(--azul-oscuro);
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.formulario-paciente .form-label {
+    color: var(--azul-oscuro);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.formulario-paciente .form-control,
+.formulario-paciente .form-select {
+    padding: 12px;
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+    color: var(--texto);
+}
+
+.formulario-paciente .form-control:focus,
+.formulario-paciente .form-select:focus {
+    border-color: var(--azul);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.15);
+}
+
+.formulario-paciente .btn-hospital {
+    padding: 12px 25px;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .formulario-paciente {
+        padding: 25px 20px;
+    }
+
+    .titulo-formulario {
+        font-size: 28px;
+    }
+}

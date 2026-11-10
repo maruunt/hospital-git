@@ -1,3 +1,4 @@
+
 <?php
 include ("./conexion.php");
 
@@ -5,50 +6,117 @@ $especialidades = $con->query("SELECT * FROM especialidad");
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Médico</title>
+    <title>Crear Médico | Hospitalin</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS del hospital -->
+    <link rel="stylesheet" href="../css/cp.css">
 </head>
-<body>
-    <h1>Crear Médico</h1>
-    <section class="formulario">
-        <form action="./registroMedico.php" method="POST" enctype="multipart/form-data">
 
-            <label>DNI:</label>
-            <input type="text" name="dni" required> <br> <br>
+<body class="pagina-formulario">
 
-            <label>Nombre</label>
-            <input type="text" name="nombre" required> <br> <br>
+    <header>
+        <nav class="navbar navbar-hospital">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="../admin.php">
+                    <img src="../img/logo.png" alt="Logo" class="logo-hospital me-2">
+                </a>
 
-            <Label>Apellido:</Label>
-            <input type="text" name="apellido" required> <br> <br>
-            
-            <label>Mail:</label>
-            <input type="email" name="mail" required> <br> <br>
+                <a href="../admin.php" class="btn btn-outline-light">
+                    Volver al panel
+                </a>
+            </div>
+        </nav>
+    </header>
 
-            <label>Contraseña:</label>
-            <input type="password" name="contrasena" required> <br> <br>
+    <main class="container py-5">
 
-            <label>Especialidad:</label>
-            <select name="especialidad" required>
-                <?php
-                while($e = $especialidades->fetch_assoc()){
-                ?>
+        <div class="formulario-paciente">
 
-                <option value="<?php echo $e['id']; ?>">
-                    <?php echo $e['nombre']; ?>
-                </option>
+            <div class="text-center mb-4">
+                <span class="etiqueta-portada">Gestión de usuarios</span>
+                <h1 class="titulo-formulario mt-3">Crear médico</h1>
+                <p class="texto-portada">
+                    Completá los datos para registrar un nuevo médico.
+                </p>
+            </div>
 
-                <?php
-                }
-                ?>
-            </select> <br> <br>
+            <form action="./registroMedico.php" method="POST" enctype="multipart/form-data">
 
-            <input type="submit" value="Guardar">
+                <div class="row g-3">
 
-        </form>
-    </section>
+                    <div class="col-md-6">
+                        <label for="dni" class="form-label">DNI:</label>
+                        <input type="text" class="form-control" id="dni" name="dni" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="apellido" class="form-label">Apellido:</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="mail" class="form-label">Mail:</label>
+                        <input type="email" class="form-control" id="mail" name="mail" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="contrasena" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="especialidad" class="form-label">Especialidad:</label>
+
+                        <select class="form-select" id="especialidad" name="especialidad" required>
+                            <option value="" selected disabled>Seleccioná una especialidad</option>
+
+                            <?php
+                            while($e = $especialidades->fetch_assoc()){
+                            ?>
+
+                            <option value="<?php echo $e['id']; ?>">
+                                <?php echo $e['nombre']; ?>
+                            </option>
+
+                            <?php
+                            }
+                            ?>
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-center gap-3 mt-4">
+                    <a href="../admin.php" class="btn btn-outline-secondary">
+                        Cancelar
+                    </a>
+
+                    <button type="submit" class="btn btn-hospital">
+                        Guardar médico
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
