@@ -118,6 +118,8 @@ $obraSocial = $con->query("SELECT * FROM obra_social");
                     <button type="submit" class="btn btn-hospital">
                         Guardar paciente
                     </button>
+
+                    <?php header('Location: ../index.admin');?>
                 </div>
 
             </form>

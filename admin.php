@@ -220,7 +220,7 @@
                             <p class="card-text">
                                 Consultar los turnos registrados en el hospital.
                             </p>
-                            <a href="" class="btn btn-hospital">
+                            <a href="./php/turnosAdmin.php" class="btn btn-hospital">
                                 Ver turnos
                             </a>
                         </div>

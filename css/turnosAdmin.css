@@ -1,0 +1,138 @@
+
+:root {
+    --azul-oscuro: #164E63;
+    --azul: #2563EB;
+    --celeste: #DBEAFE;
+    --fondo: #F4F8FC;
+    --blanco: #FFFFFF;
+    --texto: #334155;
+}
+
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+}
+
+.navbar-hospital {
+    background-color: var(--azul-oscuro);
+    padding: 12px 0;
+}
+
+.logo-hospital {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.titulo-hospital {
+    color: var(--azul-oscuro);
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.etiqueta-portada {
+    display: inline-block;
+    background-color: var(--celeste);
+    color: var(--azul-oscuro);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.tabla-turnos-container {
+    background-color: var(--blanco);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(22, 78, 99, 0.08);
+    border: 1px solid #E2E8F0;
+}
+
+.tabla-turnos {
+    vertical-align: middle;
+    margin-bottom: 0;
+}
+
+.tabla-turnos thead th {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    padding: 16px;
+    border: none;
+    white-space: nowrap;
+}
+
+.tabla-turnos tbody td {
+    padding: 16px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.tabla-turnos tbody tr:hover {
+    background-color: var(--celeste);
+}
+
+.tabla-turnos .form-control {
+    min-width: 130px;
+    border-radius: 9px;
+    border: 1px solid #CBD5E1;
+    padding: 9px;
+}
+
+.tabla-turnos .form-control:focus {
+    border-color: var(--azul);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.15);
+}
+
+.acciones-turno {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.acciones-turno .btn {
+    border-radius: 9px;
+    font-weight: 600;
+}
+
+.estado-turno {
+    display: inline-block;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.estado-activo {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+.estado-cancelado {
+    background-color: #F1F5F9;
+    color: #64748B;
+}
+
+.mensaje-sin-turnos {
+    background-color: var(--celeste);
+    color: var(--azul-oscuro);
+    padding: 22px;
+    border-radius: 14px;
+    text-align: center;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .titulo-hospital {
+        font-size: 28px;
+    }
+
+    .tabla-turnos-container {
+        padding: 15px;
+    }
+
+    .tabla-turnos th,
+    .tabla-turnos td {
+        font-size: 14px;
+        padding: 12px;
+    }
+}

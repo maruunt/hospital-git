@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } elseif ($_POST['accion'] === 'cancelar') {
 
-        $query = "UPDATE turno SET estado = 0 WHERE id = ?";
+        $query = "UPDATE turno SET estado = 3 WHERE id = ?";
         $stmt = $con->prepare($query);
         $stmt->bind_param('i', $idTurno);
         $stmt->execute();
