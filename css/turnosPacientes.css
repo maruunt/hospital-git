@@ -34,11 +34,6 @@ body {
     object-fit: contain;
 }
 
-.logo-hospital {
-    width: 55px;
-    height: 55px;
-    object-fit: contain;
-}
 
 .titulo-portada {
     color: var(--azul-oscuro);
