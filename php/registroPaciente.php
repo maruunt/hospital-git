@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $dni = $_REQUEST ["dni"];
 $nombre = $_REQUEST["nombre"];
 $apellido = $_REQUEST["apellido"];
@@ -14,4 +16,10 @@ $conexion=new mysqli('localhost', 'root', '', 'hospital');
 //ejecutar consulta
 $conexion->query($insertar); 
 
+// para que dependiendo de la session a donde te redirecciona despues
+if ($_SESSION['id_tipo_usuario'] == 2) {
+    header("Location: ../secretario.php");
+} elseif ($_SESSION['id_tipo_usuario'] == 4) {
+    header("Location: ../admin.php"); 
+} 
 ?>

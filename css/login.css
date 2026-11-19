@@ -1,8 +1,39 @@
+/* paleta de colroes */
+:root {
+    --azul-oscuro: #164E63;
+    --azul: #2563EB;
+    --celeste: #DBEAFE;
+    --fondo: #F4F8FC;
+    --blanco: #FFFFFF;
+    --texto: #334155;
+}
 
+/* body { background: red !important; }
 /* PAGINA DE INICIO DE SESION */
 
 .login-page {
     background-color: var(--fondo);
+}
+
+/* Nav-var */
+.navbar-hospital {
+    background-color: var(--azul-oscuro);
+    padding: 15px 0;
+}
+
+.navbar-hospital .navbar-brand {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-hospital {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
 }
 
 /* CONTENEDOR DEL LOGIN */
