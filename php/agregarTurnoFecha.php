@@ -23,7 +23,7 @@ if (!empty($_POST['id_medico']) && !empty($_POST['id_especialidad']) && !empty($
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CSS del hospital -->
-    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/cp.css">
 </head>
 
 <body class="pagina-formulario">
