@@ -11,4 +11,5 @@ $insertar = "INSERT INTO medico (dni, nombre, apellido, mail, contrasena, especi
 $conexion=new mysqli('localhost', 'root', '', 'hospital');
 //ejecutar consulta
 $conexion->query($insertar); 
+header ("Location: ../admin.php");
 ?>

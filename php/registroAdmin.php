@@ -7,5 +7,5 @@ $insertar = "INSERT INTO administrador (mail, contrasena, id_tipo_usuario) VALUE
 $conexion=new mysqli('localhost', 'root', '', 'hospital');
 //ejecutar consulta
 $conexion->query($insertar); 
-
+header ("Location: ../admin.php");
 ?>

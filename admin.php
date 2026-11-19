@@ -196,7 +196,7 @@
                                 Acceder a la gestion para registrar nuevos turnos.
                             </p>
 
-                            <a href="" class="btn btn-hospital">
+                            <a href="./php/agregarTurnoEspecialidad.php" class="btn btn-hospital">
                                 Agendar turno
                             </a>
 
