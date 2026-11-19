@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2026 a las 01:14:49
+-- Tiempo de generación: 19-11-2026 a las 19:30:20
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -39,7 +39,8 @@ CREATE TABLE `administrador` (
 --
 
 INSERT INTO `administrador` (`id`, `mail`, `contrasena`, `id_tipo_usuario`) VALUES
-(4, 'pepe@gmail.com', '$2y$10$zNFDkSXcxK.AxrpXCaND5e0/xHknmHIh9jERGF.2sq2Uta7mx/h4.', 4);
+(4, 'pepe@gmail.com', '$2y$10$zNFDkSXcxK.AxrpXCaND5e0/xHknmHIh9jERGF.2sq2Uta7mx/h4.', 4),
+(5, 'ednaModa@gmail.com', '$2y$10$ttutDB6lxY/t1J/YFG2lEe.wqGt9ydH3XsIVX7KPg3vvguxp9khzG', 4);
 
 -- --------------------------------------------------------
 
@@ -120,7 +121,8 @@ CREATE TABLE `medico` (
 --
 
 INSERT INTO `medico` (`id`, `dni`, `nombre`, `apellido`, `mail`, `contrasena`, `especialidad`, `id_tipo_usuario`) VALUES
-(1, 34534, 'anoche', 'anochesoñe', 'contigo@gmail.com', '$2y$10$lKD9A4IlfMMxtVozog6DLOkSHVoX.hAdLC9dR/vix/L0pi0aFqSCK', 4, 3);
+(1, 34534, 'anoche', 'anochesoñe', 'contigo@gmail.com', '$2y$10$lKD9A4IlfMMxtVozog6DLOkSHVoX.hAdLC9dR/vix/L0pi0aFqSCK', 4, 3),
+(2, 34533, 'gustavo', 'cerati', 'gusgus@gmail.com', '$2y$10$UUzdCkS3OhRsRZI/qRs7DeBKxcOoCxF2S./IPkExTHITqC1gdqJ1q', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -185,7 +187,9 @@ CREATE TABLE `paciente` (
 --
 
 INSERT INTO `paciente` (`id`, `dni`, `nombre`, `apellido`, `mail`, `contrasena`, `fecha_nacimiento`, `telefono`, `id_tipo_usuario`, `id_obra_social`) VALUES
-(3, 34534, 'wisin', 'yandel', 'yisin@gmail.com', '$2y$10$D9t/U5oPU3du62TorAG41ORn7Rw7FfJFSmPbFr/I4MFabqa32A516', '2026-10-27', 32423, 1, 1);
+(3, 34534, 'wisin', 'yandel', 'yisin@gmail.com', '$2y$10$D9t/U5oPU3du62TorAG41ORn7Rw7FfJFSmPbFr/I4MFabqa32A516', '2026-10-27', 32423, 1, 1),
+(4, 33333, 'Charly', 'Garcia', 'clicsmodernos@gmail.com', '$2y$10$FMHqe20Y.xWunIOKWTLvzOEgBJSx4sNy6GpR9GJKu17ZoAxmn3c0W', '2007-02-27', 12344232, 1, 3),
+(5, 4564564, 'james', 'bond', 'agente007@gmacil.com', '$2y$10$UtUrzbv99nQhXY4AEjmqseniX/XAfMuZuhoyvkq5QOCzg5s.zt7hm', '1985-07-11', 3453456, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -350,7 +354,7 @@ ALTER TABLE `turno`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `agenda`
@@ -374,7 +378,7 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `medico`
 --
 ALTER TABLE `medico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `obra_social`
@@ -386,7 +390,7 @@ ALTER TABLE `obra_social`
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `secretario`
