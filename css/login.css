@@ -7,8 +7,6 @@
     --blanco: #FFFFFF;
     --texto: #334155;
 }
-
-body { background: red !important; }
 /* PAGINA DE INICIO DE SESION */
 
 .login-page {
